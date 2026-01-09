@@ -1,0 +1,6 @@
+{
+    "parent": "block/block",
+    "textures": {
+        "casing": "agz_core:blocks/base_machine_casing"
+    }
+}

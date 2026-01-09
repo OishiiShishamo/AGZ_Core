@@ -1,0 +1,29 @@
+{
+    "parent": "block/block",
+    "textures": {
+        "casing": "agz_core:blocks/zenith_machine_casing",
+        "front": "agz_core:blocks/ore_replicator"
+    },
+    "elements": [
+        {
+            "from": [0, 0, 0],
+            "to": [16, 16, 16],
+            "faces": {
+                "north": { "texture": "#casing" },
+                "south": { "texture": "#casing" },
+                "east":  { "texture": "#casing" },
+                "west":  { "texture": "#casing" },
+                "up":    { "texture": "#casing" },
+                "down":  { "texture": "#casing" }
+            }
+        },
+        {
+            "from": [0, 0, 16.01],
+            "to": [16, 16, 16.01],
+            "faces": {
+                "south": { "texture": "#front" },
+                "north": { "texture": "#front" }
+            }
+        }
+    ]
+}

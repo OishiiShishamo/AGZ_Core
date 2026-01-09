@@ -1,0 +1,6 @@
+{
+    "parent": "agz_core:block/machine_base",
+    "textures": {
+        "casing": "agz_core:blocks/zenith_machine_casing"
+    }
+}

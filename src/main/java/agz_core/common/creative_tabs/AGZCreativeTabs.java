@@ -1,9 +1,10 @@
 package agz_core.common.creative_tabs;
 
-import gregtech.api.creativetab.BaseCreativeTab;
+import gregtech.api.util.BaseCreativeTab;
 
 import agz_core.Tags;
 import agz_core.common.items.AGZItems;
+
 import net.minecraft.item.ItemStack;
 
 public class AGZCreativeTabs {

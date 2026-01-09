@@ -11,5 +11,6 @@ import net.minecraftforge.event.RegistryEvent;
 public class AGZItems {
     public static final List<IItemRegisterEvent> Items = new ArrayList<IItemRegisterEvent>();
 
+    // MatItems
     public static final Item ZENITH_CATALYST = new ZenithCatalyst("zenith_catalyst");
 }

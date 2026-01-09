@@ -1,0 +1,142 @@
+package agz_core.common.blocks.machines.ore_replicator;
+
+import agz_core.Tags;
+import agz_core.api.blocks.IBlockRegisterEvent;
+import agz_core.common.blocks.AGZBlocks;
+import agz_core.common.creative_tabs.AGZCreativeTabs;
+import agz_core.common.tile.machines.ore_replicator.TileOreReplicator;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Random;
+
+public class ZenithOreReplicator extends Block implements IBlockRegisterEvent {
+    protected final String Name;
+
+    public static final PropertyDirection FACING = BlockHorizontal.FACING;
+
+    public ItemStack hold_item = ItemStack.EMPTY;
+
+    public ZenithOreReplicator(String name) {
+        super(Material.IRON);
+        this.Name = name;
+        this.setRegistryName(Tags.MODID, this.Name);
+        this.setCreativeTab(AGZCreativeTabs.TAB_AGZ);
+        this.setTranslationKey(this.Name);
+
+        setDefaultState(this.blockState.getBaseState()
+                .withProperty(FACING, EnumFacing.NORTH));
+
+        AGZBlocks.Blocks.add(this);
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        TileEntity te = world.getTileEntity(pos);
+        ItemStack stack = player.getHeldItem(hand);
+        if (te instanceof TileOreReplicator) {
+            ItemStack copy = stack.copy();
+            copy.setCount(1);
+            ((TileOreReplicator) te).setStoredStack(copy);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
+    }
+
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state) {
+        TileOreReplicator te = new TileOreReplicator();
+        te.setTier(TileOreReplicator.tiers.Zenith);
+        return te;
+    }
+
+    @NotNull
+    @Override
+    public IBlockState getStateForPlacement(
+            World world,
+            BlockPos pos,
+            EnumFacing facing,
+            float hitX,
+            float hitY,
+            float hitZ,
+            int meta,
+            EntityLivingBase placer
+    ) {
+        return getDefaultState()
+                .withProperty(FACING, placer.getHorizontalFacing());
+    }
+
+    @NotNull
+    @Override
+    public BlockRenderLayer getRenderLayer() {
+        return BlockRenderLayer.CUTOUT_MIPPED;
+    }
+
+    @NotNull
+    @Override
+    public int getLightValue(IBlockState state) {
+        return 12;
+    }
+
+    @NotNull
+    @Override
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, FACING);
+    }
+
+    @NotNull
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        EnumFacing facing = EnumFacing.byHorizontalIndex(meta);
+        return getDefaultState().withProperty(FACING, facing);
+    }
+
+    @NotNull
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(FACING).getHorizontalIndex();
+    }
+
+    @Override
+    public void registerBlock(RegistryEvent.Register<Block> event) {
+        event.getRegistry().register(this);
+    }
+
+    @Override
+    public void registerItemBlock(RegistryEvent.Register<Item> event) {
+        event.getRegistry().register(new ItemBlock(this).setRegistryName(Tags.MODID, this.Name));
+    }
+
+    @Override
+    public void registerModel(ModelRegistryEvent event) {
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,
+                new ModelResourceLocation(new ResourceLocation(Tags.MODID, this.Name), "inventory"));
+    }
+}

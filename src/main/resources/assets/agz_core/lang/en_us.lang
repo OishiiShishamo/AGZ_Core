@@ -2,4 +2,6 @@ item.zenith_catalyst.name=Zenith Catalyst
 
 tile.zenith_catalyst_block.name=Zenith Catalyst Block
 
+tile.zenith_ore_replicator.name=Zenith Ore Replicator
+
 itemGroup.agz_core.main=AppliedGreg - ZENITH

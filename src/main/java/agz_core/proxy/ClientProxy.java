@@ -2,6 +2,7 @@ package agz_core.proxy;
 
 import agz_core.common.blocks.AGZBlocks;
 import agz_core.common.items.AGZItems;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
