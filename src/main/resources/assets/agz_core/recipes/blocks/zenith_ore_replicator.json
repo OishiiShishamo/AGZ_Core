@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "ZZZ",
+    "ZRZ",
+    "ZZZ"
+  ],
+  "key": {
+    "Z": {
+      "type": "forge:ore_dict",
+      "ore": "catalystZenith"
+    },
+    "R": {
+      "item": "agz_core:uhv_ore_replicator"
+    }
+  },
+  "result": {
+    "item": "agz_core:zenith_ore_replicator"
+  }
+}

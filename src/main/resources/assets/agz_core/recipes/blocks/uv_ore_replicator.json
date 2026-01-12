@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "III",
+    "CRC",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotDarmstadtium"
+    },
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "circuitUv"
+    },
+    "R": {
+      "item": "agz_core:zpm_ore_replicator"
+    }
+  },
+  "result": {
+    "item": "agz_core:uv_ore_replicator"
+  }
+}

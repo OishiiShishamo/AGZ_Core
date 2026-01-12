@@ -1,4 +1,4 @@
-package agz_core.common.blocks.machines.ore_replicator;
+package agz_core.common.blocks.machines;
 
 import agz_core.Tags;
 import agz_core.api.blocks.IBlockRegisterEvent;
@@ -27,20 +27,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
-
-public class ZenithOreReplicator extends Block implements IBlockRegisterEvent {
+public class OreReplicator extends Block implements IBlockRegisterEvent {
     protected final String Name;
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-    public ItemStack hold_item = ItemStack.EMPTY;
+    public TileOreReplicator.tiers Tier = TileOreReplicator.tiers.Zenith;
 
-    public ZenithOreReplicator(String name) {
+    public OreReplicator(String name, TileOreReplicator.tiers tier) {
         super(Material.IRON);
         this.Name = name;
         this.setRegistryName(Tags.MODID, this.Name);
@@ -51,6 +47,7 @@ public class ZenithOreReplicator extends Block implements IBlockRegisterEvent {
                 .withProperty(FACING, EnumFacing.NORTH));
 
         AGZBlocks.Blocks.add(this);
+        this.Tier = tier;
     }
 
     @Override
@@ -73,7 +70,7 @@ public class ZenithOreReplicator extends Block implements IBlockRegisterEvent {
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
         TileOreReplicator te = new TileOreReplicator();
-        te.setTier(TileOreReplicator.tiers.Zenith);
+        te.setTier(Tier);
         return te;
     }
 
@@ -90,7 +87,7 @@ public class ZenithOreReplicator extends Block implements IBlockRegisterEvent {
             EntityLivingBase placer
     ) {
         return getDefaultState()
-                .withProperty(FACING, placer.getHorizontalFacing());
+                .withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
     @NotNull

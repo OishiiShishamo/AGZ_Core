@@ -1,3 +1,13 @@
 tile.zenith_catalyst_block.name=Zenith Catalystブロック
 
+tile.steam_ore_replicator.name=蒸気鉱石複製機
+tile.lv_ore_replicator.name=LV鉱石複製機
+tile.mv_ore_replicator.name=MV鉱石複製機
+tile.hv_ore_replicator.name=HV鉱石複製機
+tile.ev_ore_replicator.name=EV鉱石複製機
+tile.iv_ore_replicator.name=IV鉱石複製機
+tile.luv_ore_replicator.name=LuV鉱石複製機
+tile.zpm_ore_replicator.name=ZPM鉱石複製機
+tile.uv_ore_replicator.name=UV鉱石複製機
+tile.uhv_ore_replicator.name=UHV鉱石複製機
 tile.zenith_ore_replicator.name=Zenith鉱石複製機

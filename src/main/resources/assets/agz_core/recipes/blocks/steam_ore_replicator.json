@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "III",
+    "ISI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotBronze"
+    },
+    "S": {
+      "item": "gregtech:steam_casing",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "agz_core:steam_ore_replicator"
+  }
+}

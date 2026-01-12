@@ -39,6 +39,8 @@ public abstract class CommonProxy {
                 "getTheOneProbe",
                 "agz_core.api.integration.top.TOPIntegration"
         );
+
+        OreDictionary.registerOre("catalystZenith", AGZItems.ZENITH_CATALYST);
     }
 
     public void postInit(FMLPostInitializationEvent event) {

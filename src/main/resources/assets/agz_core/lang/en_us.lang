@@ -2,6 +2,16 @@ item.zenith_catalyst.name=Zenith Catalyst
 
 tile.zenith_catalyst_block.name=Zenith Catalyst Block
 
+tile.steam_ore_replicator.name=Steam Ore Replicator
+tile.lv_ore_replicator.name=LV Ore Replicator
+tile.mv_ore_replicator.name=MV Ore Replicator
+tile.hv_ore_replicator.name=HV Ore Replicator
+tile.ev_ore_replicator.name=EV Ore Replicator
+tile.iv_ore_replicator.name=IV Ore Replicator
+tile.luv_ore_replicator.name=LuV Ore Replicator
+tile.zpm_ore_replicator.name=ZPM Ore Replicator
+tile.uv_ore_replicator.name=UV Ore Replicator
+tile.uhv_ore_replicator.name=UHV Ore Replicator
 tile.zenith_ore_replicator.name=Zenith Ore Replicator
 
 itemGroup.agz_core.main=AppliedGreg - ZENITH

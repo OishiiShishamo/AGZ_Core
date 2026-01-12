@@ -1,7 +1,7 @@
 {
     "parent": "block/block",
     "textures": {
-        "casing": "agz_core:blocks/zenith_machine_casing",
+        "casing": "agz_core:blocks/uv_machine_casing",
         "front": "agz_core:blocks/ore_replicator"
     },
     "elements": [

@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "III",
+    "CRC",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotNaquadahAlloy"
+    },
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "circuitZpm"
+    },
+    "R": {
+      "item": "agz_core:luv_ore_replicator"
+    }
+  },
+  "result": {
+    "item": "agz_core:zpm_ore_replicator"
+  }
+}
